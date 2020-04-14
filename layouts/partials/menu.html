@@ -5,6 +5,8 @@
         {{ if not .HasChildren }}
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
+
+        
       {{ end }}
       {{ if gt (len $.Site.Menus.main) $.Site.Params.showMenuItems }}
         <ul class="menu__sub-inner">
@@ -13,9 +15,21 @@
           <ul class="menu__sub-inner-more hidden">
             {{ range last (sub (len $.Site.Menus.main) $.Site.Params.showMenuItems) $.Site.Menus.main }}
               {{ if not .HasChildren }}
+
                 <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+
               {{ end }}
+
+
             {{ end }}
+
+            
+            <!-- Hard Coding my Social Links -->
+
+            <li><a href="https://github.com/ejmason101" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/emason101/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://stackoverflow.com/users/4443812/elliot?tab=profile" target="_blank">Stack Overflow</a></li>
+
           </ul>
         </ul>
       {{ end }}
@@ -25,6 +39,7 @@
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
       {{ end }}
+
     {{ end }}
 
     {{ if $.Site.Params.showLanguageSelector }}
