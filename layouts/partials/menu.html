@@ -2,9 +2,12 @@
   <ul class="menu__inner menu__inner--desktop">
     {{ if or $.Site.Params.showMenuItems ( eq .Site.Params.showMenuItems 0 ) }}
       {{ range first $.Site.Params.showMenuItems $.Site.Menus.main }}
+      <!-- Do not render a dropdown menu -->
         {{ if not .HasChildren }}
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
+
+        
 
         
       {{ end }}
@@ -16,6 +19,7 @@
             {{ range last (sub (len $.Site.Menus.main) $.Site.Params.showMenuItems) $.Site.Menus.main }}
               {{ if not .HasChildren }}
 
+
                 <li><a href="{{ .URL }}">{{ .Name }}</a></li>
 
               {{ end }}
@@ -25,6 +29,8 @@
 
             
             <!-- Hard Coding my Social Links -->
+
+            <li><a href="http://dbms.masoncomputers.com" target="_blank">DBMS Project</a></li>
 
             <li><a href="https://github.com/ejmason101" target="_blank">GitHub</a></li>
             <li><a href="https://www.linkedin.com/in/emason101/" target="_blank">LinkedIn</a></li>
